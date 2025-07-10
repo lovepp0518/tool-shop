@@ -22,4 +22,9 @@ class Product extends Model
     {
         return $this->hasMany(SerialCard::class);
     }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }
