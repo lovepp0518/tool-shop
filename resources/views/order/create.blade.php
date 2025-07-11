@@ -3,7 +3,7 @@
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{ __('建立訂單') }}
     </h2>
-</x-slot>
+  </x-slot>
 
   <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -15,7 +15,8 @@
                     <input
                       name="quantity"
                       type="number"
-                      value="1"
+                      {{-- 預設值1，且在驗證失敗時保留使用者輸入的值 --}}
+                      value="{{ old('quantity', 1) }}" 
                       min="1"
                       max="10"
                       class="w-16 text-center bg-gray-100 text-black py-1 px-2 rounded border-none focus:outline-none"
@@ -28,6 +29,8 @@
                     >
                       結帳
                     </button>
+                    {{-- 後端驗證失敗時的錯誤訊息 --}}
+                    <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
                   </form>
               </div>
           </div>
