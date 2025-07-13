@@ -10,6 +10,7 @@ class SerialCard extends Model
     protected $fillable = [
         'uuid',
         'product_id',
+        'order_id',
     ];
 
     public function product(): BelongsTo
